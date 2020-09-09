@@ -17,7 +17,23 @@ app.use(express.static('public'));
 app.get("/", function (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
-
+//api endpoint for accepting date inputs in timestamp and string formats 
+app.get("/api/timestamp/:dateString",(req,res)=>{
+  let dateInput=req.params.dateString;
+  console.log(dateInput);
+  try { //checking if input is a time stamp or a date format(eg. 27-12-10) 
+      dateInput = parseInt(dateInput , 10);
+  } catch (error) {
+      console.log(error);
+  } finally{
+    try {//cheking if the date is valid timeStamp integer or a date string 
+      var date = new Date(dateInput);
+    } catch (error) {
+      res.json({"error" : "Invalid Date" }  );
+    }
+      res.json({"unix": date.getTime(), "utc" : date.toUTCString() });
+    }
+});
 
 // your first API endpoint... 
 app.get("/api/hello", function (req, res) {
@@ -29,4 +45,5 @@ app.get("/api/hello", function (req, res) {
 // listen for requests :)
 var listener = app.listen(process.env.PORT, function () {
   console.log('Your app is listening on port ' + listener.address().port);
+  console.log('http://localhost:' + listener.address().port);
 });
