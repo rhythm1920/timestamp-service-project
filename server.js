@@ -34,6 +34,11 @@ app.get("/api/timestamp/:dateString",(req,res)=>{
       res.json({"unix": date.getTime(), "utc" : date.toUTCString() });
     }
 });
+//api end-point for returning the times-stamp of current time
+app.get(['/api/timestamp/','/api/timestamp'],(req,res)=>{
+  let now = new Date();
+  res.json({"unix": now.getTime(), "utc" : now.toUTCString() });
+});
 
 // your first API endpoint... 
 app.get("/api/hello", function (req, res) {
