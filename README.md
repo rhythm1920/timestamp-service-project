@@ -2,9 +2,9 @@
 
 ###### Built for FreeCodeCamp Back end Challlenges
 
-###### This project passes all test of [this](https://www.freecodecamp.org/learn/apis-and-microservices/apis-and-microservices-projects/timestamp-microservice) challenge
+###### [This project passes all test of this](https://www.freecodecamp.org/learn/apis-and-microservices/apis-and-microservices-projects/timestamp-microservice) challenge
 
-###### The live app is hosted [here](https://timestamp-service-pheonix.herokuapp.com/)
+###### [The live app is hosted here](https://timestamp-service-pheonix.herokuapp.com/)
 
 ### Working
 
